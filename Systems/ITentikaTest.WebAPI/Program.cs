@@ -10,6 +10,9 @@ services.AddAppControllers();
 var app = builder.Build();
 
 app.UseAppSwagger();
+
 app.UseAppControllers();
+
+app.UseAppMiddlewares();
 
 app.Run();
