@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 
-namespace ITentikaTest.Common.Settings;
+namespace ITentikaTest.Settings;
 
 public static class SettingsFactory
 {

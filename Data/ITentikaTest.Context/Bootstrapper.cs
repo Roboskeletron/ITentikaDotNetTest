@@ -1,5 +1,5 @@
-﻿using ITentikaTest.Common.Settings;
-using ITentikaTest.Context;
+﻿using ITentikaTest.Context;
+using ITentikaTest.Settings;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;

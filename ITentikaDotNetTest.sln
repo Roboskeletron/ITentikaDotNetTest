@@ -18,6 +18,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Migrations", "Migrations", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITentikaTest.Context.Migrations.PostgreSQL", "Data\Migrations\ITentikaTest.Context.Migrations.PostgreSQL\ITentikaTest.Context.Migrations.PostgreSQL.csproj", "{8D697E0E-E42B-48F5-9EF5-857E9EA66154}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Settings", "Shared\Settings\Settings.csproj", "{B91DEC52-1FCA-4DAF-9A38-7D2FCE7B6007}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,6 +32,7 @@ Global
 		{CD0EDCB5-1C04-4295-AADC-611029A4D98B} = {10F69EA6-7BF1-4916-B03A-68E1A82E83EE}
 		{0DD14016-B792-427D-8918-E832D9603701} = {C4174A91-E21F-43D0-9472-A1EAD6B05ACB}
 		{8D697E0E-E42B-48F5-9EF5-857E9EA66154} = {0DD14016-B792-427D-8918-E832D9603701}
+		{B91DEC52-1FCA-4DAF-9A38-7D2FCE7B6007} = {E00CBDB7-14A8-4F78-BE5F-051FEF69776B}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{A50D438A-2D11-4F65-8EA5-68D77B60193B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -52,5 +55,9 @@ Global
 		{8D697E0E-E42B-48F5-9EF5-857E9EA66154}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8D697E0E-E42B-48F5-9EF5-857E9EA66154}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8D697E0E-E42B-48F5-9EF5-857E9EA66154}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B91DEC52-1FCA-4DAF-9A38-7D2FCE7B6007}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B91DEC52-1FCA-4DAF-9A38-7D2FCE7B6007}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B91DEC52-1FCA-4DAF-9A38-7D2FCE7B6007}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B91DEC52-1FCA-4DAF-9A38-7D2FCE7B6007}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -7,4 +7,8 @@
         <RootNamespace>ITentikaTest.Migrations.PostgreSQL</RootNamespace>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\..\..\Shared\Settings\Settings.csproj" />
+    </ItemGroup>
+
 </Project>
