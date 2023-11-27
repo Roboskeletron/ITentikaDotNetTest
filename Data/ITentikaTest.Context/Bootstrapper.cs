@@ -8,19 +8,19 @@ namespace Context;
 
 public static class Bootstrapper
 {
-    public static IServiceCollection AddAppDbContext<TDbContext>(this IServiceCollection serviceCollection,
+    public static IServiceCollection AddAppDbContext<TDbContext>(this IServiceCollection services,
         IConfiguration? configuration = null) where TDbContext : DbContext
     {
         var settings = Settings.Load<DbSettings>($"Database{typeof(TDbContext)}", configuration);
 
-        serviceCollection.AddSingleton(settings);
+        services.AddSingleton(settings);
         
         var dbInitOptionsDelegate = DbContextOptionsFactory.Configure(
             settings.ConnectionString,
             settings.Type);
 
-        serviceCollection.AddDbContextFactory<TDbContext>(dbInitOptionsDelegate);
+        services.AddDbContextFactory<TDbContext>(dbInitOptionsDelegate);
 
-        return serviceCollection;
+        return services;
     }
 }

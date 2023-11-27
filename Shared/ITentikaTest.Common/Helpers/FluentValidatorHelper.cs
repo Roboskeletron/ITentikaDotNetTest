@@ -5,7 +5,7 @@ namespace ITentikaTest.Common.Helpers;
 
 public static class FluentValidatorHelper
 {
-    public static void Register(IServiceCollection serviceCollection)
+    public static void Register(IServiceCollection services)
     {
         var validators = from type in AppDomain.CurrentDomain.GetAssemblies().SelectMany(v => v.GetTypes())
             where !type.IsAbstract && !type.IsGenericTypeDefinition
@@ -20,6 +20,6 @@ public static class FluentValidatorHelper
                 ValidatorType = type
             };
         
-        validators.ToList().ForEach(x => serviceCollection.AddSingleton(x.InterfaceType, x.ValidatorType));
+        validators.ToList().ForEach(x => services.AddSingleton(x.InterfaceType, x.ValidatorType));
     }
 }
