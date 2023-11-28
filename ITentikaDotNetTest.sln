@@ -20,6 +20,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITentikaTest.Context.Migrat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITentikaTest.Settings", "Shared\ITentikaTest.Settings\ITentikaTest.Settings.csproj", "{B91DEC52-1FCA-4DAF-9A38-7D2FCE7B6007}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITentikaTest.EventProcessor", "Systems\ITentikaTest.EventProcessor\ITentikaTest.EventProcessor.csproj", "{BA34CF8E-6A9D-4F5E-87D5-DC001801D25F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,7 @@ Global
 		{0DD14016-B792-427D-8918-E832D9603701} = {C4174A91-E21F-43D0-9472-A1EAD6B05ACB}
 		{8D697E0E-E42B-48F5-9EF5-857E9EA66154} = {0DD14016-B792-427D-8918-E832D9603701}
 		{B91DEC52-1FCA-4DAF-9A38-7D2FCE7B6007} = {E00CBDB7-14A8-4F78-BE5F-051FEF69776B}
+		{BA34CF8E-6A9D-4F5E-87D5-DC001801D25F} = {10F69EA6-7BF1-4916-B03A-68E1A82E83EE}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{A50D438A-2D11-4F65-8EA5-68D77B60193B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -59,5 +62,9 @@ Global
 		{B91DEC52-1FCA-4DAF-9A38-7D2FCE7B6007}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B91DEC52-1FCA-4DAF-9A38-7D2FCE7B6007}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B91DEC52-1FCA-4DAF-9A38-7D2FCE7B6007}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA34CF8E-6A9D-4F5E-87D5-DC001801D25F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA34CF8E-6A9D-4F5E-87D5-DC001801D25F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA34CF8E-6A9D-4F5E-87D5-DC001801D25F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA34CF8E-6A9D-4F5E-87D5-DC001801D25F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
