@@ -5,12 +5,25 @@
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
         <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+        <GenerateDocumentationFile>True</GenerateDocumentationFile>
+        <DocumentationFile>api.xml</DocumentationFile>
     </PropertyGroup>
 
     <ItemGroup>
       <Content Include="..\..\.dockerignore">
         <Link>.dockerignore</Link>
       </Content>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\Data\ITentikaTest.Context.Entities\ITentikaTest.Context.Entities.csproj" />
+      <ProjectReference Include="..\..\Data\ITentikaTest.Context\ITentikaTest.Context.csproj" />
+      <ProjectReference Include="..\..\Shared\ITentikaTest.Common\ITentikaTest.Common.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.25" />
+      <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
     </ItemGroup>
 
 </Project>
