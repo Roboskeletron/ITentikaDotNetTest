@@ -1,9 +1,11 @@
+using ITentikaTest.WebAPI;
 using ITentikaTest.WebAPI.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
 var services = builder.Services;
 
+services.AddAppServices();
 services.AddAppSwagger();
 services.AddAppControllers();
 
