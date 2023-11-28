@@ -8,7 +8,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\..\Shared\Settings\Settings.csproj" />
+      <ProjectReference Include="..\..\..\Shared\ITentikaTest.Settings\ITentikaTest.Settings.csproj" />
     </ItemGroup>
 
 </Project>

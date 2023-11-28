@@ -18,7 +18,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Migrations", "Migrations", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITentikaTest.Context.Migrations.PostgreSQL", "Data\Migrations\ITentikaTest.Context.Migrations.PostgreSQL\ITentikaTest.Context.Migrations.PostgreSQL.csproj", "{8D697E0E-E42B-48F5-9EF5-857E9EA66154}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Settings", "Shared\Settings\Settings.csproj", "{B91DEC52-1FCA-4DAF-9A38-7D2FCE7B6007}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITentikaTest.Settings", "Shared\ITentikaTest.Settings\ITentikaTest.Settings.csproj", "{B91DEC52-1FCA-4DAF-9A38-7D2FCE7B6007}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
