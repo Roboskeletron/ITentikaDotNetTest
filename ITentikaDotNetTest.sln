@@ -12,7 +12,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITentikaTest.Context.Entiti
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITentikaTest.Common", "Shared\ITentikaTest.Common\ITentikaTest.Common.csproj", "{87623D97-EF88-4160-89F1-FBBF36FFD206}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITentikaTest.WebAPI", "Systems\ITentikaTest.WebAPI\ITentikaTest.WebAPI.csproj", "{CD0EDCB5-1C04-4295-AADC-611029A4D98B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITentikaTest.EventPublisher", "Systems\ITentikaTest.EventPublisher\ITentikaTest.EventPublisher.csproj", "{CD0EDCB5-1C04-4295-AADC-611029A4D98B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Migrations", "Migrations", "{0DD14016-B792-427D-8918-E832D9603701}"
 EndProject
