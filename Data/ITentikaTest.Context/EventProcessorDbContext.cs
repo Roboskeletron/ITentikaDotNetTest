@@ -9,6 +9,10 @@ public class EventProcessorDbContext : DbContext
     public DbSet<Event> Events { get; set; }
     public DbSet<Incident> Incidents { get; set; }
 
+    public EventProcessorDbContext(DbContextOptions options) : base(options)
+    {
+    }
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Event>().HasKey(x => x.Id);
