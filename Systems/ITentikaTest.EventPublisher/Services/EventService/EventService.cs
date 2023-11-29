@@ -11,9 +11,10 @@ public class EventService : IEventService
     private readonly IHttpClientFactory httpClientFactory;
     private readonly MicroserviceSettings microserviceSettings;
 
-    public EventService(IHttpClientFactory httpClientFactory)
+    public EventService(IHttpClientFactory httpClientFactory, MicroserviceSettings microserviceSettings)
     {
         this.httpClientFactory = httpClientFactory;
+        this.microserviceSettings = microserviceSettings;
     }
 
     public async Task<HttpResponseMessage> Publish(Event generatedEvent)
@@ -24,6 +25,6 @@ public class EventService : IEventService
             Encoding.UTF8,
             MediaTypeNames.Application.Json);
 
-        return await httpClient.PostAsync(microserviceSettings.Uri + "/api/ProcessEvent", content);
+        return await httpClient.PostAsync(microserviceSettings.Uri, content);
     }
 }

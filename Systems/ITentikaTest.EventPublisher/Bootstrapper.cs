@@ -13,6 +13,7 @@ public static class Bootstrapper
         var eventGeneratorSettings = ITentikaTest.Settings.Settings.Load<EventGeneratorSettings>("EventGenerator", configuration);
 
         services
+            .AddHttpClient()
             .AddSingleton(eventServiceSettings)
             .AddSingleton(eventGeneratorSettings)
             .AddSingleton<IEventService, EventService>()
