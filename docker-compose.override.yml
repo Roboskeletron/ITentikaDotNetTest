@@ -1,35 +1,21 @@
 version: '3.4'
 
 services:
-#  itentikatest.eventprocessor:
-#    environment:
-#      - ASPNETCORE_ENVIRONMENT=Development
-#      - ASPNETCORE_URLS=https://+:443;http://+:80
-#    ports:
-#      - "80"
-#      - "443"
-#    volumes:
-#      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
-#      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
-
-  itentikatest.eventpublisher:
+  itentikatest_eventprocessor:
     ports:
-      - "5148:5148"
-    networks:
-      - shared_itentika_test
+      - "5146:80"
+    env_file:
+      - env.processor
+
+  itentikatest_eventpublisher:
+    ports:
+      - "5148:80"
     env_file:
       - env.publisher
   
-  itentikatest.postgres:
+  itentikatest_postgres:
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=Passw0rd
     ports:
       - 5432:5432
-    networks:
-      - shared_itentika_test
-
-networks:
-  shared_itentika_test:
-    name: itentika_test
-    driver: bridge

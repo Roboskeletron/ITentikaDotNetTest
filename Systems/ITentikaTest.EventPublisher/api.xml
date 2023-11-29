@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ITentikaTest.EventPublisher</name>
+    </assembly>
+    <members>
+        <member name="M:ITentikaTest.WebAPI.Controllers.EventGeneratorController.GenerateEvent(Context.Entities.Event.EventTypeEnum)">
+            <summary>
+            Manually generate new event
+            </summary>
+            <param name="eventType">Type of event</param>
+            <returns>Generated event and its send status</returns>
+        </member>
+        <member name="P:ITentikaTest.WebAPI.Settings.EventGeneratorSettings.MaxDelay">
+            <summary>
+            Max delay in milliseconds between generations
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ITentikaTest.EventProcessor</name>
+    </assembly>
+    <members>
+        <member name="M:ITentikaTest.EventProcessor.Controllers.EventProcessorController.AddEvent(Context.Entities.Event.Event)">
+            <summary>
+            Receive events endpoint
+            </summary>
+            <param name="generatedEvent">Received event</param>
+            <returns>Received event</returns>
+        </member>
+        <member name="M:ITentikaTest.EventProcessor.Controllers.EventProcessorController.GetIncidents(System.Int32,System.Int32)">
+            <summary>
+            Get created incidents list ordered by incident creation time
+            </summary>
+            <param name="offset">Offset from the first incident</param>
+            <param name="limit">Number of incidents to fetch</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

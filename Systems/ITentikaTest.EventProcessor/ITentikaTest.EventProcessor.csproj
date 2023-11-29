@@ -13,12 +13,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Content Include="..\..\.dockerignore">
-        <Link>.dockerignore</Link>
-      </Content>
-    </ItemGroup>
-
-    <ItemGroup>
       <ProjectReference Include="..\..\Data\ITentikaTest.Context.Entities\ITentikaTest.Context.Entities.csproj" />
       <ProjectReference Include="..\..\Data\ITentikaTest.Context\ITentikaTest.Context.csproj" />
       <ProjectReference Include="..\..\Data\Migrations\ITentikaTest.Context.Migrations.PostgreSQL\ITentikaTest.Context.Migrations.PostgreSQL.csproj" />
@@ -35,6 +29,12 @@
       <PackageReference Include="Serilog.AspNetCore" Version="8.0.0" />
       <PackageReference Include="Serilog.Enrichers.CorrelationId" Version="3.0.1" />
       <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Include="..\..\.dockerignore">
+        <Link>.dockerignore</Link>
+      </Content>
     </ItemGroup>
 
 </Project>
