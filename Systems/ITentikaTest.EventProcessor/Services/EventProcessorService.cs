@@ -1,5 +1,4 @@
-﻿using Castle.Core.Internal;
-using Context.Entities.Event;
+﻿using Context.Entities.Event;
 using ITentikaTest.EventProcessor.Services.EventService;
 using ITentikaTest.EventProcessor.Services.Facories;
 
