@@ -4,7 +4,7 @@ namespace ITentikaTest.Context;
 
 public static class DbContextOptionsFactory
 {
-    private const string migrationProjctPrefix = "ITentkaTest.Context.Migrations";
+    private const string migrationProjctPrefix = "ITentikaTest.Context.Migrations";
     
     public static DbContextOptions<T> Create<T>(string connStr, DbType dbType) where T : DbContext
     {
@@ -25,7 +25,7 @@ public static class DbContextOptionsFactory
                     builder.UseNpgsql(conectionString, options =>
                         options.CommandTimeout((int)TimeSpan.FromMinutes(10).TotalSeconds)
                             .MigrationsHistoryTable("_ef_migrations_history", "public")
-                            .MigrationsAssembly($"{migrationProjctPrefix}.{DbType.PostgreSQL}")
+                            .MigrationsAssembly($"{migrationProjctPrefix}.{DbType.PostgreSQL.ToString()}")
                     );
                     break;
                 default:

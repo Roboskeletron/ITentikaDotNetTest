@@ -11,7 +11,7 @@ public static class Bootstrapper
     public static IServiceCollection AddAppDbContext<TDbContext>(this IServiceCollection services,
         IConfiguration? configuration = null) where TDbContext : DbContext
     {
-        var settings = Settings.Load<DbSettings>($"Database{typeof(TDbContext)}", configuration);
+        var settings = Settings.Load<DbSettings>(typeof(TDbContext).Name, configuration);
 
         services.AddSingleton(settings);
         

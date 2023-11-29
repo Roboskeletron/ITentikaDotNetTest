@@ -4,5 +4,5 @@ public class Event
 {
     public Guid Id { get; set; } = Guid.NewGuid();
     public EventTypeEnum Type { get; set; }
-    private DateTime Time { get; set; } = DateTime.Now;
+    public DateTime Time { get; set; } = DateTime.Now.ToUniversalTime();
 }
