@@ -1,0 +1,21 @@
+version: '3.4'
+
+services:
+  itentikatest_eventprocessor:
+    image: ${DOCKER_REGISTRY-}itentikatesteventprocessor
+    build:
+      context: .
+      dockerfile: Systems/ITentikaTest.EventProcessor/Dockerfile
+    depends_on:
+      - itentikatest_postgres
+  
+  itentikatest_eventpublisher:
+    image: ${DOCKER_REGISTRY-}itentikatesteventpublisher
+    build:
+      context: .
+      dockerfile: Systems/ITentikaTest.EventPublisher/Dockerfile
+        
+  itentikatest_postgres:
+    image: postgres:latest
+    ports:
+      - "5432:5432"

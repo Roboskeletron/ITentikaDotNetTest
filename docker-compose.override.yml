@@ -1,0 +1,21 @@
+version: '3.4'
+
+services:
+  itentikatest_eventprocessor:
+    ports:
+      - "5146:80"
+    env_file:
+      - env.processor
+
+  itentikatest_eventpublisher:
+    ports:
+      - "5148:80"
+    env_file:
+      - env.publisher
+  
+  itentikatest_postgres:
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=Passw0rd
+    ports:
+      - 5432:5432
