@@ -11,12 +11,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Content Include="..\..\.dockerignore">
-        <Link>.dockerignore</Link>
-      </Content>
-    </ItemGroup>
-
-    <ItemGroup>
       <ProjectReference Include="..\..\Data\ITentikaTest.Context.Entities\ITentikaTest.Context.Entities.csproj" />
       <ProjectReference Include="..\..\Shared\ITentikaTest.Common\ITentikaTest.Common.csproj" />
       <ProjectReference Include="..\..\Shared\ITentikaTest.Settings\ITentikaTest.Settings.csproj" />
@@ -24,7 +18,15 @@
 
     <ItemGroup>
       <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.25" />
+      <PackageReference Include="Serilog.AspNetCore" Version="8.0.0" />
+      <PackageReference Include="Serilog.Enrichers.CorrelationId" Version="3.0.1" />
       <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Include="..\..\.dockerignore">
+        <Link>.dockerignore</Link>
+      </Content>
     </ItemGroup>
 
 </Project>

@@ -8,12 +8,14 @@ public class EventGeneratorService : BackgroundService
 {
     private readonly IEventService eventService;
     private readonly EventGeneratorSettings settings;
+    private readonly ILogger<EventGeneratorService> logger;
     private readonly Random random = new();
 
-    public EventGeneratorService(IEventService eventService, EventGeneratorSettings settings)
+    public EventGeneratorService(IEventService eventService, EventGeneratorSettings settings, ILogger<EventGeneratorService> logger)
     {
         this.eventService = eventService;
         this.settings = settings;
+        this.logger = logger;
     }
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
@@ -35,6 +37,8 @@ public class EventGeneratorService : BackgroundService
         {
             Type = eventType
         };
+        
+        logger.Log(LogLevel.Trace, "Event {@event} generated", generatedEvent);
 
         await eventService.Publish(generatedEvent);
     }
