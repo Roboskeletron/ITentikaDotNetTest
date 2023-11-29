@@ -38,6 +38,7 @@ public class EventService : IEventService
         var dbContext = await dbContextFactory.CreateDbContextAsync();
 
         var incidents = dbContext.Incidents.Include(x => x.Events)
+            .OrderBy(incident => incident.Time)
             .Skip(Math.Max(offset, 0))
             .Take(Math.Min(limit, 1000));
 
