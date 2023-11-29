@@ -1,5 +1,4 @@
-﻿using Castle.Core.Internal;
-using Context.Entities.Event;
+﻿using Context.Entities.Event;
 using ITentikaTest.EventProcessor.Services.EventService;
 using ITentikaTest.EventProcessor.Services.Facories;
 
@@ -9,11 +8,13 @@ public class EventProcessorService : BackgroundService
 {
     private readonly IEventService eventService;
     private readonly IIncidentFactory incidentFactory;
+    private readonly ILogger<EventProcessorService> logger;
 
-    public EventProcessorService(IEventService eventService, IIncidentFactory incidentFactory)
+    public EventProcessorService(IEventService eventService, IIncidentFactory incidentFactory, ILogger<EventProcessorService> logger)
     {
         this.eventService = eventService;
         this.incidentFactory = incidentFactory;
+        this.logger = logger;
     }
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
@@ -39,6 +40,8 @@ public class EventProcessorService : BackgroundService
         {
             return;
         }
+        
+        logger.LogInformation("Processing event {@event}", processingEvent);
         
         await ProcessEvent(processingEvent);
     }

@@ -5,7 +5,13 @@ namespace ITentikaTest.EventProcessor.Services.Facories;
 
 public class IncidentFactory : IIncidentFactory
 {
+    private readonly ILogger<IncidentFactory> logger;
     private Incident? incident = null;
+
+    public IncidentFactory(ILogger<IncidentFactory> logger)
+    {
+        this.logger = logger;
+    }
 
     public event EventHandler<IncidentEventArgs> IncidentBuildCompleted;
 
@@ -43,6 +49,7 @@ public class IncidentFactory : IIncidentFactory
 
             if (deltaTime.Seconds > 20)
             {
+                logger.LogTrace("Incident type 2 creation failed");
                 incident = null;
                 ProcessType1(processingEvent);
                 return;
@@ -50,6 +57,9 @@ public class IncidentFactory : IIncidentFactory
         }
         
         incident.Events.Add(processingEvent);
+        
+        logger.LogTrace("Building of {@incident} completed", incident);
+        
         IncidentBuildCompleted.Invoke(this, new IncidentEventArgs(incident));
         incident = null;
     }
@@ -64,5 +74,7 @@ public class IncidentFactory : IIncidentFactory
                 processingEvent
             }
         };
+        
+        logger.LogTrace("Type 2 incident {@incident} created", incident);
     }
 }

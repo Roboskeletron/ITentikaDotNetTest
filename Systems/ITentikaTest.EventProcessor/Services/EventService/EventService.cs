@@ -10,13 +10,14 @@ namespace ITentikaTest.EventProcessor.Services.EventService;
 public class EventService : IEventService
 {
     private readonly IDbContextFactory<EventProcessorDbContext> dbContextFactory;
-
+    private readonly ILogger<EventService> logger;
     private readonly Queue<Event> eventQueue = new();
     // private readonly IModelValidator<Incident> incidentValidator;
 
-    public EventService(IDbContextFactory<EventProcessorDbContext> dbContextFactory)
+    public EventService(IDbContextFactory<EventProcessorDbContext> dbContextFactory, ILogger<EventService> logger)
     {
         this.dbContextFactory = dbContextFactory;
+        this.logger = logger;
     }
 
     public async Task CreateIncident(Incident incident)
@@ -28,6 +29,8 @@ public class EventService : IEventService
         await dbContext.Incidents.AddAsync(incident);
 
         dbContext.SaveChanges();
+        
+        logger.LogInformation("Incident {@incident} created", incident);
     }
 
     public async Task<IEnumerable<Incident>> GetIncidents(int offset = 0, int limit = 10)
@@ -35,6 +38,7 @@ public class EventService : IEventService
         var dbContext = await dbContextFactory.CreateDbContextAsync();
 
         var incidents = dbContext.Incidents.Include(x => x.Events)
+            .OrderBy(incident => incident.Time)
             .Skip(Math.Max(offset, 0))
             .Take(Math.Min(limit, 1000));
 
