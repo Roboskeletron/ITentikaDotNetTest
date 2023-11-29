@@ -6,11 +6,12 @@ services:
 #    build:
 #      context: .
 #      dockerfile: Systems/ITentikaTest.EventProcessor/Dockerfile
-      
+  
+  itentikatest.eventpublisher:
+    image: itentikatesteventpublisher:latest
+    build:
+      context: .
+      dockerfile: Systems/ITentikaTest.EventPublisher/Dockerfile
+        
   itentikatest.postgres:
     image: postgres:latest
-    environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=Passw0rd
-    ports:
-      - 5432:5432
