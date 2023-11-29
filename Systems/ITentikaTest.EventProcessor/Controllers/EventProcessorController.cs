@@ -22,4 +22,13 @@ public class EventProcessorController : ControllerBase
         await eventService.PushEvent(generatedEvent);
         return Ok(generatedEvent);
     }
+
+    [Route("Incidents")]
+    [HttpGet]
+    public async Task<IActionResult> GetIncidents([FromQuery] int offset = 0, [FromQuery] int limit = 10)
+    {
+        var incidents = await eventService.GetIncidents(offset, limit);
+
+        return Ok(incidents);
+    }
 }
