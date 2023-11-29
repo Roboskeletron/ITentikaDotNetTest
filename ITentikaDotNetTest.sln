@@ -1,38 +1,36 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33122.133
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{C4174A91-E21F-43D0-9472-A1EAD6B05ACB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{E00CBDB7-14A8-4F78-BE5F-051FEF69776B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Systems", "Systems", "{10F69EA6-7BF1-4916-B03A-68E1A82E83EE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITentikaTest.Context", "Data\ITentikaTest.Context\ITentikaTest.Context.csproj", "{A50D438A-2D11-4F65-8EA5-68D77B60193B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITentikaTest.Context", "Data\ITentikaTest.Context\ITentikaTest.Context.csproj", "{A50D438A-2D11-4F65-8EA5-68D77B60193B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITentikaTest.Context.Entities", "Data\ITentikaTest.Context.Entities\ITentikaTest.Context.Entities.csproj", "{674460CE-6B56-4164-A6E4-D5297DD01B11}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITentikaTest.Context.Entities", "Data\ITentikaTest.Context.Entities\ITentikaTest.Context.Entities.csproj", "{674460CE-6B56-4164-A6E4-D5297DD01B11}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITentikaTest.Common", "Shared\ITentikaTest.Common\ITentikaTest.Common.csproj", "{87623D97-EF88-4160-89F1-FBBF36FFD206}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITentikaTest.Common", "Shared\ITentikaTest.Common\ITentikaTest.Common.csproj", "{87623D97-EF88-4160-89F1-FBBF36FFD206}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITentikaTest.WebAPI", "Systems\ITentikaTest.WebAPI\ITentikaTest.WebAPI.csproj", "{CD0EDCB5-1C04-4295-AADC-611029A4D98B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITentikaTest.EventPublisher", "Systems\ITentikaTest.EventPublisher\ITentikaTest.EventPublisher.csproj", "{CD0EDCB5-1C04-4295-AADC-611029A4D98B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Migrations", "Migrations", "{0DD14016-B792-427D-8918-E832D9603701}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ITentikaTest.Context.Migrations.PostgreSQL", "Data\Migrations\ITentikaTest.Context.Migrations.PostgreSQL\ITentikaTest.Context.Migrations.PostgreSQL.csproj", "{8D697E0E-E42B-48F5-9EF5-857E9EA66154}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITentikaTest.Context.Migrations.PostgreSQL", "Data\Migrations\ITentikaTest.Context.Migrations.PostgreSQL\ITentikaTest.Context.Migrations.PostgreSQL.csproj", "{8D697E0E-E42B-48F5-9EF5-857E9EA66154}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Settings", "Shared\Settings\Settings.csproj", "{B91DEC52-1FCA-4DAF-9A38-7D2FCE7B6007}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITentikaTest.Settings", "Shared\ITentikaTest.Settings\ITentikaTest.Settings.csproj", "{B91DEC52-1FCA-4DAF-9A38-7D2FCE7B6007}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ITentikaTest.EventProcessor", "Systems\ITentikaTest.EventProcessor\ITentikaTest.EventProcessor.csproj", "{BA34CF8E-6A9D-4F5E-87D5-DC001801D25F}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{8E516433-BBE4-47DE-ABC6-ABD90B579634}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{A50D438A-2D11-4F65-8EA5-68D77B60193B} = {C4174A91-E21F-43D0-9472-A1EAD6B05ACB}
-		{674460CE-6B56-4164-A6E4-D5297DD01B11} = {C4174A91-E21F-43D0-9472-A1EAD6B05ACB}
-		{87623D97-EF88-4160-89F1-FBBF36FFD206} = {E00CBDB7-14A8-4F78-BE5F-051FEF69776B}
-		{CD0EDCB5-1C04-4295-AADC-611029A4D98B} = {10F69EA6-7BF1-4916-B03A-68E1A82E83EE}
-		{0DD14016-B792-427D-8918-E832D9603701} = {C4174A91-E21F-43D0-9472-A1EAD6B05ACB}
-		{8D697E0E-E42B-48F5-9EF5-857E9EA66154} = {0DD14016-B792-427D-8918-E832D9603701}
-		{B91DEC52-1FCA-4DAF-9A38-7D2FCE7B6007} = {E00CBDB7-14A8-4F78-BE5F-051FEF69776B}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{A50D438A-2D11-4F65-8EA5-68D77B60193B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -59,5 +57,29 @@ Global
 		{B91DEC52-1FCA-4DAF-9A38-7D2FCE7B6007}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B91DEC52-1FCA-4DAF-9A38-7D2FCE7B6007}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B91DEC52-1FCA-4DAF-9A38-7D2FCE7B6007}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA34CF8E-6A9D-4F5E-87D5-DC001801D25F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA34CF8E-6A9D-4F5E-87D5-DC001801D25F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA34CF8E-6A9D-4F5E-87D5-DC001801D25F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA34CF8E-6A9D-4F5E-87D5-DC001801D25F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E516433-BBE4-47DE-ABC6-ABD90B579634}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E516433-BBE4-47DE-ABC6-ABD90B579634}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E516433-BBE4-47DE-ABC6-ABD90B579634}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E516433-BBE4-47DE-ABC6-ABD90B579634}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A50D438A-2D11-4F65-8EA5-68D77B60193B} = {C4174A91-E21F-43D0-9472-A1EAD6B05ACB}
+		{674460CE-6B56-4164-A6E4-D5297DD01B11} = {C4174A91-E21F-43D0-9472-A1EAD6B05ACB}
+		{87623D97-EF88-4160-89F1-FBBF36FFD206} = {E00CBDB7-14A8-4F78-BE5F-051FEF69776B}
+		{CD0EDCB5-1C04-4295-AADC-611029A4D98B} = {10F69EA6-7BF1-4916-B03A-68E1A82E83EE}
+		{0DD14016-B792-427D-8918-E832D9603701} = {C4174A91-E21F-43D0-9472-A1EAD6B05ACB}
+		{8D697E0E-E42B-48F5-9EF5-857E9EA66154} = {0DD14016-B792-427D-8918-E832D9603701}
+		{B91DEC52-1FCA-4DAF-9A38-7D2FCE7B6007} = {E00CBDB7-14A8-4F78-BE5F-051FEF69776B}
+		{BA34CF8E-6A9D-4F5E-87D5-DC001801D25F} = {10F69EA6-7BF1-4916-B03A-68E1A82E83EE}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {33A3DC60-20FC-4422-BBD4-D2A564F041E9}
 	EndGlobalSection
 EndGlobal

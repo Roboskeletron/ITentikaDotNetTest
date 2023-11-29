@@ -15,7 +15,8 @@
 
     <ItemGroup>
       <ProjectReference Include="..\..\Shared\ITentikaTest.Common\ITentikaTest.Common.csproj" />
-      <ProjectReference Include="..\..\Shared\Settings\Settings.csproj" />
+      <ProjectReference Include="..\..\Shared\ITentikaTest.Settings\ITentikaTest.Settings.csproj" />
+      <ProjectReference Include="..\ITentikaTest.Context.Entities\ITentikaTest.Context.Entities.csproj" />
     </ItemGroup>
 
 </Project>

@@ -7,6 +7,7 @@
         <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
         <GenerateDocumentationFile>True</GenerateDocumentationFile>
         <DocumentationFile>api.xml</DocumentationFile>
+        <RootNamespace>ITentikaTest.WebAPI</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
@@ -16,7 +17,9 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\..\Data\ITentikaTest.Context.Entities\ITentikaTest.Context.Entities.csproj" />
       <ProjectReference Include="..\..\Shared\ITentikaTest.Common\ITentikaTest.Common.csproj" />
+      <ProjectReference Include="..\..\Shared\ITentikaTest.Settings\ITentikaTest.Settings.csproj" />
     </ItemGroup>
 
     <ItemGroup>

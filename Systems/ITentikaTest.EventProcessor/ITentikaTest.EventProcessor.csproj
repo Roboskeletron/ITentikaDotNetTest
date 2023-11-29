@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+        <GenerateDocumentationFile>True</GenerateDocumentationFile>
+        <DocumentationFile>api.xml</DocumentationFile>
+        <UserSecretsId>aa1849d1-e7c0-45a5-af87-64c0831c5e67</UserSecretsId>
+        <DockerfileContext>..\..</DockerfileContext>
+        <DockerComposeProjectPath>..\..\docker-compose.dcproj</DockerComposeProjectPath>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Content Include="..\..\.dockerignore">
+        <Link>.dockerignore</Link>
+      </Content>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\Data\ITentikaTest.Context.Entities\ITentikaTest.Context.Entities.csproj" />
+      <ProjectReference Include="..\..\Data\ITentikaTest.Context\ITentikaTest.Context.csproj" />
+      <ProjectReference Include="..\..\Data\Migrations\ITentikaTest.Context.Migrations.PostgreSQL\ITentikaTest.Context.Migrations.PostgreSQL.csproj" />
+      <ProjectReference Include="..\..\Shared\ITentikaTest.Common\ITentikaTest.Common.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.25" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.25">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
+      <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.17.0" />
+      <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+    </ItemGroup>
+
+</Project>
