@@ -3,7 +3,7 @@
 public class EventGeneratorSettings
 {
     /// <summary>
-    /// Max delay in seconds between generations
+    /// Max delay in milliseconds between generations
     /// </summary>
     public int MaxDelay { get; private set; }
 }

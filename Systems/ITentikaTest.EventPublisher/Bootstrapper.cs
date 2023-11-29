@@ -9,8 +9,8 @@ public static class Bootstrapper
 {
     public static IServiceCollection AddAppServices(this IServiceCollection services, IConfiguration? configuration = null)
     {
-        var eventServiceSettings = Settings.Settings.Load<MicroserviceSettings>("EventProcessor", configuration);
-        var eventGeneratorSettings = ITentikaTest.Settings.Settings.Load<EventGeneratorSettings>("EventGenerator");
+        var eventServiceSettings = ITentikaTest.Settings.Settings.Load<MicroserviceSettings>("EventProcessor", configuration);
+        var eventGeneratorSettings = ITentikaTest.Settings.Settings.Load<EventGeneratorSettings>("EventGenerator", configuration);
 
         services
             .AddSingleton(eventServiceSettings)
