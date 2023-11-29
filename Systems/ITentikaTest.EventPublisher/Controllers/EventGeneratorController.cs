@@ -16,6 +16,10 @@ public class EventGeneratorController : ControllerBase
         this.eventService = eventService;
     }
 
+    /// <summary>
+    /// Manually generate new event
+    /// </summary>
+    /// <param name="eventType">Type of event</param>
     [Route("")]
     [HttpPost]
     public async Task GenerateEvent([FromQuery] EventTypeEnum eventType)

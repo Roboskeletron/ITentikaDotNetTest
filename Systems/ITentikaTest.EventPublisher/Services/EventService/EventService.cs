@@ -10,11 +10,13 @@ public class EventService : IEventService
 {
     private readonly IHttpClientFactory httpClientFactory;
     private readonly MicroserviceSettings microserviceSettings;
+    private readonly ILogger<EventService> logger;
 
-    public EventService(IHttpClientFactory httpClientFactory, MicroserviceSettings microserviceSettings)
+    public EventService(IHttpClientFactory httpClientFactory, MicroserviceSettings microserviceSettings, ILogger<EventService> logger)
     {
         this.httpClientFactory = httpClientFactory;
         this.microserviceSettings = microserviceSettings;
+        this.logger = logger;
     }
 
     public async Task<HttpResponseMessage> Publish(Event generatedEvent)
@@ -25,6 +27,8 @@ public class EventService : IEventService
             Encoding.UTF8,
             MediaTypeNames.Application.Json);
 
+        logger.Log(LogLevel.Information, "Send event {@event} to {@uri}",  generatedEvent, microserviceSettings.Uri);
+        
         return await httpClient.PostAsync(microserviceSettings.Uri, content);
     }
 }
