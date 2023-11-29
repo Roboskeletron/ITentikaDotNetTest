@@ -1,4 +1,6 @@
-﻿using Context;
+﻿using Castle.Core.Internal;
+using Context;
+using Context.Entities.Event;
 using Context.Entities.Incident;
 using ITentikaTest.Common.Validators;
 using Microsoft.EntityFrameworkCore;
@@ -8,17 +10,18 @@ namespace ITentikaTest.EventProcessor.Services.EventService;
 public class EventService : IEventService
 {
     private readonly IDbContextFactory<EventProcessorDbContext> dbContextFactory;
-    private readonly IModelValidator<Incident> incidentValidator;
 
-    public EventService(IDbContextFactory<EventProcessorDbContext> dbContextFactory, IModelValidator<Incident> incidentValidator)
+    private readonly Queue<Event> eventQueue = new();
+    // private readonly IModelValidator<Incident> incidentValidator;
+
+    public EventService(IDbContextFactory<EventProcessorDbContext> dbContextFactory)
     {
         this.dbContextFactory = dbContextFactory;
-        this.incidentValidator = incidentValidator;
     }
 
     public async Task CreateIncident(Incident incident)
     {
-        incidentValidator.Check(incident);
+        // incidentValidator.Check(incident);
 
         var dbContext = await dbContextFactory.CreateDbContextAsync();
 
@@ -36,5 +39,22 @@ public class EventService : IEventService
             .Take(Math.Min(limit, 1000));
 
         return await incidents.ToListAsync();
+    }
+
+    public Task PushEvent(Event generatedEvent)
+    {
+        eventQueue.Enqueue(generatedEvent);
+
+        return Task.CompletedTask;
+    }
+
+    public async Task<Event>? FetchEvent()
+    {
+        if (eventQueue.IsNullOrEmpty())
+        {
+            return null;
+        }
+
+        return eventQueue.Dequeue();
     }
 }
