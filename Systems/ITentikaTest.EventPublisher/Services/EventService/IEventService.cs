@@ -4,5 +4,5 @@ namespace ITentikaTest.WebAPI.Services.EventService;
 
 public interface IEventService
 {
-    Task<HttpResponseMessage> Publish(Event generatedEvent);
+    Task<bool> Publish(Event generatedEvent);
 }

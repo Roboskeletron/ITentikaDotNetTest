@@ -19,7 +19,7 @@ public class EventService : IEventService
         this.logger = logger;
     }
 
-    public async Task<HttpResponseMessage> Publish(Event generatedEvent)
+    public async Task<bool> Publish(Event generatedEvent)
     {
         var httpClient = httpClientFactory.CreateClient();
 
@@ -28,7 +28,19 @@ public class EventService : IEventService
             MediaTypeNames.Application.Json);
 
         logger.Log(LogLevel.Information, "Send event {@event} to {@uri}",  generatedEvent, microserviceSettings.Uri);
+
+        bool result = false;
         
-        return await httpClient.PostAsync(microserviceSettings.Uri, content);
+        try
+        {
+            await httpClient.PostAsync(microserviceSettings.Uri, content);
+            result = true;
+        }
+        catch (HttpRequestException requestException)
+        {
+            logger.LogError(requestException, "Unable to reach {@url}", microserviceSettings.Uri);
+        }
+
+        return result;
     }
 }

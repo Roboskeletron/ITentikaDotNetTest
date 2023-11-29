@@ -1,5 +1,7 @@
-﻿using System.Net.Mime;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Net;
 using Context.Entities.Event;
+using ITentikaTest.WebAPI.Models;
 using ITentikaTest.WebAPI.Services.EventService;
 using Microsoft.AspNetCore.Mvc;
 
@@ -20,19 +22,24 @@ public class EventGeneratorController : ControllerBase
     /// Manually generate new event
     /// </summary>
     /// <param name="eventType">Type of event</param>
+    /// <returns>Generated event and its send status</returns>
     [Route("")]
     [HttpPost]
-    public async Task GenerateEvent([FromQuery] EventTypeEnum eventType)
+    [ProducesResponseType(typeof(GeneratedEventModel), (int)HttpStatusCode.Created)]
+    public async Task<IActionResult> GenerateEvent([FromQuery] [Required] EventTypeEnum eventType)
     {
         var generatedEvent = new Event
         {
             Type = eventType
         };
 
-        var response = eventService.Publish(generatedEvent);
-        HttpContext.Response.ContentType = MediaTypeNames.Application.Json;
-        HttpContext.Response.StatusCode = (int)response.Result.StatusCode;
-
-        await response.Result.Content.CopyToAsync(HttpContext.Response.Body);
+        var result = await eventService.Publish(generatedEvent);
+        
+        return Created("", new GeneratedEventModel
+            {
+                GeneratedEvent = generatedEvent,
+                IsSent = result
+            })
+            ;
     }
 }
