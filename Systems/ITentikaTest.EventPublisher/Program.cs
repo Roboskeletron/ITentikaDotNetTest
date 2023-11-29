@@ -3,6 +3,8 @@ using ITentikaTest.WebAPI.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.AddAppLogger();
+
 var services = builder.Services;
 
 services.AddAppServices();
