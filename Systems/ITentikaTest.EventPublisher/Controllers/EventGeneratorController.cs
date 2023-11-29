@@ -25,7 +25,7 @@ public class EventGeneratorController : ControllerBase
     /// <returns>Generated event and its send status</returns>
     [Route("")]
     [HttpPost]
-    [ProducesResponseType(typeof(GeneratedEventModel), (int)HttpStatusCode.Created)]
+    [ProducesResponseType(typeof(GeneratedEventModel), (int)HttpStatusCode.OK)]
     public async Task<IActionResult> GenerateEvent([FromQuery] [Required] EventTypeEnum eventType)
     {
         var generatedEvent = new Event
@@ -35,7 +35,7 @@ public class EventGeneratorController : ControllerBase
 
         var result = await eventService.Publish(generatedEvent);
         
-        return Created("", new GeneratedEventModel
+        return Ok(new GeneratedEventModel
             {
                 GeneratedEvent = generatedEvent,
                 IsSent = result
