@@ -4,8 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ITentikaTest.EventProcessor.Controllers;
 
+[Route("api/[controller]")]
 [ApiController]
-[Route("/api/[controller]")]
 public class EventProcessorController : ControllerBase
 {
     private readonly IEventService eventService;
@@ -15,8 +15,8 @@ public class EventProcessorController : ControllerBase
         this.eventService = eventService;
     }
 
+    [Route("add")]
     [HttpPost]
-    [Route("/add")]
     public async Task<IActionResult> AddEvent([FromBody] Event generatedEvent)
     {
         await eventService.PushEvent(generatedEvent);
