@@ -16,6 +16,7 @@
     <None Include=".dockerignore" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="env.processor" />
     <Content Include="env.publisher" />
   </ItemGroup>
 </Project>
