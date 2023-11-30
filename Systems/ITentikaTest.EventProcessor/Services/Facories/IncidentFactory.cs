@@ -1,16 +1,19 @@
 ﻿using Context.Entities.Event;
 using Context.Entities.Incident;
+using ITentikaTest.EventProcessor.settings;
 
 namespace ITentikaTest.EventProcessor.Services.Facories;
 
 public class IncidentFactory : IIncidentFactory
 {
     private readonly ILogger<IncidentFactory> logger;
+    private readonly IncidentFactrorySettings settings;
     private Incident? incident = null;
 
-    public IncidentFactory(ILogger<IncidentFactory> logger)
+    public IncidentFactory(ILogger<IncidentFactory> logger, IncidentFactrorySettings settings)
     {
         this.logger = logger;
+        this.settings = settings;
     }
 
     public event EventHandler<IncidentEventArgs> IncidentBuildCompleted;
@@ -47,7 +50,7 @@ public class IncidentFactory : IIncidentFactory
         {
             var deltaTime = processingEvent.Time - incident.Time;
 
-            if (deltaTime.Seconds > 20)
+            if (deltaTime.Seconds > Math.Max(1, settings.CreationTimeRange))
             {
                 logger.LogTrace("Incident type 2 creation failed");
                 incident = null;
