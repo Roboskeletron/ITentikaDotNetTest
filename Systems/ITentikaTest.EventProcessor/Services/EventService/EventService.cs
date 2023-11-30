@@ -25,11 +25,18 @@ public class EventService : IEventService
     {
         var dbContext = await dbContextFactory.CreateDbContextAsync();
 
-        await dbContext.Incidents.AddAsync(incident);
+        try
+        {
+            await dbContext.Incidents.AddAsync(incident);
 
-        dbContext.SaveChanges();
-        
-        logger.LogInformation("Incident {@incident} created", incident);
+            dbContext.SaveChanges();
+
+            logger.LogInformation("Incident {@incident} created", incident);
+        }
+        catch (DbUpdateException exception)
+        {
+            logger.LogError(exception, "Unable to save incident {@incident}", incident);
+        }
     }
 
     public async Task<IEnumerable<Incident>> GetIncidents(int offset = 0, int limit = 10)
