@@ -13,7 +13,6 @@ public static class Bootstrapper
     {
         services
             .AddAppDbContext<EventProcessorDbContext>(configuration)
-            .AddAppValidators()
             .AddSingleton<IIncidentFactory, IncidentFactory>()
             .AddSingleton<IEventService, EventService>()
             .AddHostedService<EventProcessorService>()

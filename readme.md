@@ -1,4 +1,17 @@
 # Itentika .NET Test Project
+## Contents
++ [Description](#description)
+  + [Event entity example](#event-entity-example)
+  + [Incident entity example](#incident-entity-example)
+  + [Event processing](#event-processing)
+  + [Technology stack](#technology-stack)
++ [Logging](#logging)
+  + [Event Publisher](#event-publisher)
+  + [Event Processor](#event-processor)
++ [Building and Deployment](#building-and-deployment)
+  + [Event Publisher configuration](#event-publisher-configuration)
+  + [Event Processor configuration](#event-processor-configuration)
+  + [Docker environment](#docker-environment)
 ## Description
 Itentika .NET Test Project is simple microservice architecture web API. It\`s job is to generate events and process them as incidents.
 ### Event entity example
@@ -10,7 +23,7 @@ Itentika .NET Test Project is simple microservice architecture web API. It\`s jo
 }
 ```
 `Event Type` can take values `1`, `2`, `3` or `4`
-### Incident example
+### Incident entity example
 ```json
 {
     "events": [
@@ -91,3 +104,14 @@ Change configuration in [`appsettings.json`](Systems/ITentikaTest.EventProcessor
 }
 ```
 Set database configuration for db context (in this case `EventProcessorDbContext`)
+### Docker environment
+Change [`env.publisher`](env.publisher) to configure containerized `Event Publisher`
+```
+EventProcessor__Uri=http://itentikatest_eventprocessor:80/api/EventProcessor/add
+EventProcessor__Name=EventProcessor
+```
+Change [`env.processor`](env.processor) to configure containerized `Event Processor`
+```
+EventProcessorDbContext__Type=PostgreSQL
+EventProcessorDbContext__ConnectionString=Server=itentikatest_postgres;Port=5432;Database=ITentikaTest;User Id=postgres;Password=Passw0rd;
+```

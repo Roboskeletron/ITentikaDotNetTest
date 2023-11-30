@@ -1,6 +1,7 @@
 ﻿using System.Net;
 using Context.Entities.Event;
 using Context.Entities.Incident;
+using ITentikaTest.Common.Responses;
 using ITentikaTest.EventProcessor.Services.EventService;
 using Microsoft.AspNetCore.Mvc;
 
@@ -25,6 +26,7 @@ public class EventProcessorController : ControllerBase
     [Route("add")]
     [HttpPost]
     [ProducesResponseType(typeof(Event), (int)HttpStatusCode.OK)]
+    [ProducesResponseType(typeof(ErrorResponse), (int)HttpStatusCode.BadRequest)]
     public async Task<IActionResult> AddEvent([FromBody] Event generatedEvent)
     {
         await eventService.PushEvent(generatedEvent);
