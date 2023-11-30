@@ -12,18 +12,17 @@ public class EventService : IEventService
     private readonly IDbContextFactory<EventProcessorDbContext> dbContextFactory;
     private readonly ILogger<EventService> logger;
     private readonly Queue<Event> eventQueue = new();
-    // private readonly IModelValidator<Incident> incidentValidator;
+    private readonly IModelValidator<Event> eventValidator;
 
-    public EventService(IDbContextFactory<EventProcessorDbContext> dbContextFactory, ILogger<EventService> logger)
+    public EventService(IDbContextFactory<EventProcessorDbContext> dbContextFactory, ILogger<EventService> logger, IModelValidator<Event> eventValidator)
     {
         this.dbContextFactory = dbContextFactory;
         this.logger = logger;
+        this.eventValidator = eventValidator;
     }
 
     public async Task CreateIncident(Incident incident)
     {
-        // incidentValidator.Check(incident);
-
         var dbContext = await dbContextFactory.CreateDbContextAsync();
 
         await dbContext.Incidents.AddAsync(incident);
@@ -47,6 +46,8 @@ public class EventService : IEventService
 
     public Task PushEvent(Event generatedEvent)
     {
+        eventValidator.Check(generatedEvent);
+        
         eventQueue.Enqueue(generatedEvent);
 
         return Task.CompletedTask;
