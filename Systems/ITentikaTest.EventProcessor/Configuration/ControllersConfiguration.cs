@@ -5,7 +5,9 @@ public static class ControllersConfiguration
     public static IServiceCollection AddAppControllers(this IServiceCollection services)
     {
         services.AddControllers()
-            .AddNewtonsoftJson();
+            .AddNewtonsoftJson()
+            .AddAppValidators()
+            ;
 
         return services;
     }

@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Net;
 using Context.Entities.Event;
+using ITentikaTest.Common.Responses;
 using ITentikaTest.WebAPI.Models;
 using ITentikaTest.WebAPI.Services.EventService;
 using Microsoft.AspNetCore.Mvc;
@@ -26,6 +27,7 @@ public class EventGeneratorController : ControllerBase
     [Route("")]
     [HttpPost]
     [ProducesResponseType(typeof(GeneratedEventModel), (int)HttpStatusCode.OK)]
+    [ProducesResponseType(typeof(ErrorResponse), (int)HttpStatusCode.BadRequest)]
     public async Task<IActionResult> GenerateEvent([FromQuery] [Required] EventTypeEnum eventType)
     {
         var generatedEvent = new Event
