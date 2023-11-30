@@ -53,9 +53,9 @@ public class IncidentFactory : IIncidentFactory
             if (deltaTime.Seconds > Math.Max(1, settings.CreationTimeRange))
             {
                 logger.LogTrace("Incident type 2 creation failed");
-                incident = null;
-                ProcessType1(processingEvent);
-                return;
+                
+                incident.Type = IncidentTypeEnum.Type1;
+                incident.Events.Clear();
             }
         }
         
