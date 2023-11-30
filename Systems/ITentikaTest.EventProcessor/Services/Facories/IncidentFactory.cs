@@ -50,7 +50,7 @@ public class IncidentFactory : IIncidentFactory
         {
             var deltaTime = processingEvent.Time - incident.Time;
 
-            if (deltaTime.Seconds > settings.CreationTimeRange)
+            if (deltaTime.Seconds > Math.Max(1, settings.CreationTimeRange))
             {
                 logger.LogTrace("Incident type 2 creation failed");
                 incident = null;
