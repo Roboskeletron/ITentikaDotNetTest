@@ -100,10 +100,14 @@ Change configuration in [`appsettings.json`](Systems/ITentikaTest.EventProcessor
   "EventProcessorDbContext": {
     "Type": "PostgreSQL",
     "ConnectionString": "Server=localhost;Port=5432;Database=ITentikaTest;User Id=postgres;Password=Passw0rd;"
+  },
+  "IncidentFactory": {
+    "CreationTimeRange": 20
   }
 }
 ```
-Set database configuration for db context (in this case `EventProcessorDbContext`)
+Set database configuration for db context (in this case `EventProcessorDbContext`). Change `CreationTimeRange` to modify
+incident of `2` type creation range.
 ### Docker environment
 Change [`env.publisher`](env.publisher) to configure containerized `Event Publisher`
 ```
