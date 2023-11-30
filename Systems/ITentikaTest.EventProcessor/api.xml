@@ -19,5 +19,10 @@
             <param name="limit">Number of incidents to fetch</param>
             <returns></returns>
         </member>
+        <member name="P:ITentikaTest.EventProcessor.settings.IncidentFactrorySettings.CreationTimeRange">
+            <summary>
+            Creation time range for the incident of 2 type in seconds
+            </summary>
+        </member>
     </members>
 </doc>
